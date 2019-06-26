@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(245, 179, 234);
+}
+
+button {
+    padding: .75vh;
+    border-radius: 1rem;
+}
+
+.myRow {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.myPostCard {
+    border: solid rgb(1, 1, 43) 2px;
+    background-color: rgb(174, 193, 209);
+    padding: 10px;
+}

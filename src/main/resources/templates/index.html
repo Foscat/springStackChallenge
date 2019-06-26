@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html lang="en" xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+
+        <div class="myContainer">
+
+            <div class="myRow">
+                Hey man its the index
+                <a th:href="@{/new}">
+                    <button type="button">Make a new post</button>
+                </a>
+            </div>
+
+            <div class="myRow">
+                <div th:each="post: ${posts}">
+                    <div class="myPostCard">
+                        <div class="myCard-head">
+                            <h3 th:text="${post.title}"></h3>
+                            <h5 th:text="${post.author}"></h5>
+                            <p th:text="${post.postBody}"></p>
+                        </div>
+                        <br>
+                        <div class="myCard-footer">
+                            <a th:href="@{/edit/{id} (id=${post.id})}">
+                                <button type="button">
+                                    Edit this post
+                                </button>
+                            </a>
+                            <form th:action="@{'/delete/{id}' (id=${post.id})}" th:object="${posts}" th:method="delete">
+                                <button type="submit">X</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="en" xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+
+        <div class="myContainer">
+
+            <div class="myRow">
+                Hey man make a post
+                <a th:href="@{/}">
+                    <button type="button">Go back home</button>
+                </a>
+            </div>
+
+            <br>
+
+            <div>
+                <form th:action="@{/new}" th:object="${post}" method="POST">
+                    <input type="text" placeholder="Enter title of post" th:field="*{title}" />
+                    <input type="text" placeholder="Enter your name" th:field="*{author}" />
+                    <textarea rows="3" placeholder="Type post here" th:field="*{postBody}"></textarea>
+                    
+                    <button type="submit">Submit</button>
+                    
+                </form>
+            </div>
+
+        </div>
+        
+    </body>
+</html>
